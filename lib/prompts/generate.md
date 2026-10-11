@@ -186,7 +186,7 @@ Generate a Claude Code settings file with appropriate allow/deny rules for this 
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "permissions": {
     "allow": ["Bash(project-specific-commands)", "Read", "Write", "Edit"],
-    "deny": ["Bash(rm -rf *)", "Read(.env)", "Read(.env.*)"]
+    "deny": ["Bash(rm -rf *)", "Edit(.env)", "Edit(.env.local)", "Edit(.env.*.local)"]
   }
 }
 ```
