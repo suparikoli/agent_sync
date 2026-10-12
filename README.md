@@ -4,7 +4,7 @@
     <img src="https://raw.githubusercontent.com/yelmuratoff/exuno/main/assets/exuno_light.svg" alt="Exuno" width="400">
   </picture>
 
-  <h3>One source → 15 AI tools. Stop copy-pasting rules.</h3>
+  <h3>One source → 15 AI tools. Stop copy-pasting skills</h3>
 
   <p>
     <a href="https://github.com/yelmuratoff/exuno">
