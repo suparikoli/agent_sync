@@ -37,7 +37,7 @@ To go back further than the latest run, undo the newer runs first, newest to old
 
 When `init`, `sync`, or `rollback` finishes, it writes an `after.tsv` record into its backup: one line per file, folder, symlink, or missing target, with a content hash and the executable bit. When you undo a rollback, the expected state is the result of that rollback.
 
-If the record can't be written, because there's no `sha256sum` or `shasum` or a file can't be read, the run still succeeds with a warning. A backup without a usable record (one older than this check, one left unsealed by such a warning, or one with an empty or damaged `after.tsv`) is restored as before, with a warning that later changes can't be detected.
+If the record can't be written, for example because a file can't be read, the run still succeeds with a warning. A backup without a usable record (one older than this check, one left unsealed by such a warning, or one with an empty or damaged `after.tsv`) is restored as before, with a warning that later changes can't be detected.
 
 Symlinks are compared by the path they point to. Their targets aren't inspected or restored, so a change behind an unchanged link neither blocks rollback nor gets reverted. Replacing the link itself is a conflict. A target reached through a symlinked parent folder is compared through it while the link stays inside the project; one that leads outside is refused.
 
@@ -50,7 +50,7 @@ After each operation, successful or restored after a failure, Exuno prunes old b
 - `EXUNO_BACKUP_LIMIT` changes the count and `EXUNO_BACKUP_MAX_AGE_DAYS` changes the age. Each takes a non-negative integer; `0` turns that limit off.
 - Temporary folders left by an interrupted run are removed on the next backup once they're more than 24 hours old.
 
-To keep everything, set this in `.ai/exuno.yaml` (or the root `exuno.yaml`, or the file `EXUNO_CONFIG_PATH` names):
+To keep everything, set this in `.ai/exuno.yaml` (or the file `EXUNO_CONFIG_PATH` names):
 
 ```yaml
 backup:
