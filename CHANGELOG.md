@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+### Fixed
+
+- **Check:** fails on an output edited since the last sync even when it already matches the source, as a script that edits the source and its outputs together leaves it, so `check` now fails wherever `exuno sync` would refuse an edited output.
+
 ## 0.46.0
 
 ### Breaking
